@@ -950,6 +950,16 @@
 		lines = build_cool_description_unknown(get_mob_descriptors(obscure_name, user), src)
 	else
 		lines = build_cool_description(get_mob_descriptors(obscure_name, user), src)
+	
+	var/app_str
+	if(!(user.client?.prefs?.full_examine))
+		app_str = "<details><summary>[span_info("Details")]</summary>"
+
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(get_dist(src, H) <= ((2 + clamp(floor(((H.STAPER - 10))),-1, 4)) + HAS_TRAIT(user, TRAIT_INTELLECTUAL)))
+			app_str += span_info("<a href='?src=[REF(src)];task=assess;'>Assess</a><br>")
+
 	for(var/line in lines)
 		. += span_info(line)
 

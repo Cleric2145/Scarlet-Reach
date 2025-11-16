@@ -8,7 +8,7 @@
 
 /obj/structure/roguemachine/steward
 	name = "nerve master"
-	desc = "The stewards most trusted friend."
+	desc = "A magitech device connected to the royal treasury. Stewards can manage payroll by interacting with it."
 	icon = 'icons/roguetown/misc/machines.dmi'
 	icon_state = "steward_machine"
 	density = TRUE
